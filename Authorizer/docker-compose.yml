@@ -1,0 +1,11 @@
+version: "3.4"
+
+services:
+  Authorizer:
+    image: ${DOCKER_REGISTRY-}Authorizer
+    build:
+      context: .
+      dockerfile: Authorizer/Dockerfile
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output

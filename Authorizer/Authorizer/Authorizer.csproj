@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-NubankTestAuthorizer-495DB7D7-7FE6-4FA3-ADAC-BFB374310092</UserSecretsId>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'NubankTestAuthorizer' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Authorizer' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Features\" />
+    <None Remove="Features\Accounts\" />
+    <None Remove="Features\Transaction\" />
+    <None Remove="Strategies\" />
+    <None Remove="Common\" />
+    <None Remove="Microsoft.Extensions.Caching.Memory" />
+    <None Remove="Microsoft.Extensions.Caching.Abstractions" />
+    <None Remove="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Features\Accounts\" />
+    <Folder Include="Features\Transactions\" />
+    <Folder Include="Strategies\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+</Project>
